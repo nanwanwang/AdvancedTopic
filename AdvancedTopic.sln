@@ -29,6 +29,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyLoadContextSample",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronousSample", "SynchronousSample\SynchronousSample.csproj", "{5ADACDE8-0BF8-46C7-B309-40D55DDBD5F3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelSample", "ParallelSample\ParallelSample.csproj", "{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTaskSample", "ValueTaskSample\ValueTaskSample.csproj", "{3C77BF4B-E270-4D6F-8945-6C78B493A25F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -87,6 +91,14 @@ Global
 		{5ADACDE8-0BF8-46C7-B309-40D55DDBD5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ADACDE8-0BF8-46C7-B309-40D55DDBD5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ADACDE8-0BF8-46C7-B309-40D55DDBD5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
