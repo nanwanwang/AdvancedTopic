@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ParallelSample
+namespace ParallelSample;
+
+internal class ParallelForEachAsync
 {
-    internal class ParallelForEachAsync
-    {
-    }
 }
+

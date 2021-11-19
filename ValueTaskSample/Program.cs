@@ -1,8 +1,10 @@
 ﻿// See https://aka.ms/new-console-template for more information
 //Console.WriteLine("Hello, World!!!");
+int result =await  SomeValueTaskReturningMethodAsync();
+int result2 = await SomeValueTaskReturningMethodSync();
 
-//int result =await  SomeValueTaskReturningMethodAsync();
-
+Console.WriteLine(result);
+Console.WriteLine(result2); 
 //int result1 = await SomeValueTaskReturningMethodAsync().ConfigureAwait(false);
 
 //Task<int> t = SomeValueTaskReturningMethodAsync().AsTask();
@@ -29,12 +31,21 @@ Task.WhenAll(tasks);
 
 
 Console.ReadKey();
-static  ValueTask<int> SomeValueTaskReturningMethodAsync()
+
+//使用ValueTask<T> 可以是同步的 也可以是异步的  在调用的时候都可以使用await等待
+//同步代码
+static  ValueTask<int> SomeValueTaskReturningMethodSync()
 {
 
     return  new ValueTask<int>(2);
 }
 
+//异步代码
+static async ValueTask<int> SomeValueTaskReturningMethodAsync()
+{
+    await Task.Delay(100);
+    return 1;
+}
 
 static async Task<int> AccessRubiksCodeAsync()
 {
