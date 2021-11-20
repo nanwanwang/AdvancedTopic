@@ -3,35 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.31911.260
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelSample", "ChannelSample\ChannelSample.csproj", "{1D9A4CD8-309D-4CD9-A3C3-FBE0A222DAEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChannelSample", "ChannelSample\ChannelSample.csproj", "{1D9A4CD8-309D-4CD9-A3C3-FBE0A222DAEF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncSample", "AsyncSample\AsyncSample.csproj", "{3FA7E5B8-2381-4511-8670-585170B914B5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncSample", "AsyncSample\AsyncSample.csproj", "{3FA7E5B8-2381-4511-8670-585170B914B5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetworkingSample", "NetworkingSample\NetworkingSample.csproj", "{306C3628-0FED-4EF4-8943-9470CC4762E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkingSample", "NetworkingSample\NetworkingSample.csproj", "{306C3628-0FED-4EF4-8943-9470CC4762E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PipelineSample", "PipelineSample\PipelineSample.csproj", "{BF0573CC-9010-48C2-BB8E-68846B9FFD10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PipelineSample", "PipelineSample\PipelineSample.csproj", "{BF0573CC-9010-48C2-BB8E-68846B9FFD10}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpanSample", "SpanSample\SpanSample.csproj", "{DBFAC746-8764-4401-A606-23D2F11D64C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SpanSample", "SpanSample\SpanSample.csproj", "{DBFAC746-8764-4401-A606-23D2F11D64C1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgoSample", "PgoSample\PgoSample.csproj", "{44112199-8B9E-4897-B761-1A4117F63A5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PgoSample", "PgoSample\PgoSample.csproj", "{44112199-8B9E-4897-B761-1A4117F63A5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextJsonSample", "TextJsonSample\TextJsonSample.csproj", "{A04D83D5-5F2F-43D1-AE04-BACAB91C3D6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextJsonSample", "TextJsonSample\TextJsonSample.csproj", "{A04D83D5-5F2F-43D1-AE04-BACAB91C3D6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronizationContextSample", "SynchronizationContextSample\SynchronizationContextSample.csproj", "{B92A31D7-3346-4F0E-BF69-A85E0D0E6BCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynchronizationContextSample", "SynchronizationContextSample\SynchronizationContextSample.csproj", "{B92A31D7-3346-4F0E-BF69-A85E0D0E6BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigureAwaitSample", "ConfigureAwaitSample\ConfigureAwaitSample.csproj", "{2EA2FFE5-58C4-4D7B-9A82-F18BE7D12B27}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigureAwaitSample", "ConfigureAwaitSample\ConfigureAwaitSample.csproj", "{2EA2FFE5-58C4-4D7B-9A82-F18BE7D12B27}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadPoolSample", "ThreadPoolSample\ThreadPoolSample.csproj", "{D9CA24C7-65BC-4C9D-A531-A8ED6D84CE32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreadPoolSample", "ThreadPoolSample\ThreadPoolSample.csproj", "{D9CA24C7-65BC-4C9D-A531-A8ED6D84CE32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskSchedulerSample", "TaskSchedulerSample\TaskSchedulerSample.csproj", "{CE5F13D8-6ACD-4D9C-958B-D276ACFF9583}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskSchedulerSample", "TaskSchedulerSample\TaskSchedulerSample.csproj", "{CE5F13D8-6ACD-4D9C-958B-D276ACFF9583}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AssemblyLoadContextSample", "AssemblyLoadContextSample\AssemblyLoadContextSample.csproj", "{151F0377-BADB-4424-89C9-86EBC76EBE04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AssemblyLoadContextSample", "AssemblyLoadContextSample\AssemblyLoadContextSample.csproj", "{151F0377-BADB-4424-89C9-86EBC76EBE04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SynchronousSample", "SynchronousSample\SynchronousSample.csproj", "{5ADACDE8-0BF8-46C7-B309-40D55DDBD5F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SynchronousSample", "SynchronousSample\SynchronousSample.csproj", "{5ADACDE8-0BF8-46C7-B309-40D55DDBD5F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParallelSample", "ParallelSample\ParallelSample.csproj", "{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParallelSample", "ParallelSample\ParallelSample.csproj", "{B49DF2E4-5FBF-403D-81EB-DDD7A656007C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValueTaskSample", "ValueTaskSample\ValueTaskSample.csproj", "{3C77BF4B-E270-4D6F-8945-6C78B493A25F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValueTaskSample", "ValueTaskSample\ValueTaskSample.csproj", "{3C77BF4B-E270-4D6F-8945-6C78B493A25F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkingClientSample", "NetworkingClientSample\NetworkingClientSample.csproj", "{F2D5067D-8B9A-4E00-8743-0988DA7711EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskSample", "TaskSample\TaskSample.csproj", "{E1B47586-D614-4D62-8741-200232BE6539}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskCompletedSourceSample", "TaskCompletedSourceSample\TaskCompletedSourceSample.csproj", "{E63D2E05-2DC1-4E9E-AD82-AD2FAC96817C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +105,18 @@ Global
 		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C77BF4B-E270-4D6F-8945-6C78B493A25F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2D5067D-8B9A-4E00-8743-0988DA7711EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2D5067D-8B9A-4E00-8743-0988DA7711EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2D5067D-8B9A-4E00-8743-0988DA7711EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2D5067D-8B9A-4E00-8743-0988DA7711EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1B47586-D614-4D62-8741-200232BE6539}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1B47586-D614-4D62-8741-200232BE6539}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1B47586-D614-4D62-8741-200232BE6539}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1B47586-D614-4D62-8741-200232BE6539}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63D2E05-2DC1-4E9E-AD82-AD2FAC96817C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63D2E05-2DC1-4E9E-AD82-AD2FAC96817C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63D2E05-2DC1-4E9E-AD82-AD2FAC96817C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63D2E05-2DC1-4E9E-AD82-AD2FAC96817C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
