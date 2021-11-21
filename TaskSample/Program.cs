@@ -1,6 +1,6 @@
 ﻿
 
- TrySomethingAsync();
+ await TrySomethingAsync();
 
 Console.WriteLine("hello demon");
 Console.ReadKey();
@@ -8,10 +8,11 @@ Console.ReadKey();
 
 static async Task TrySomethingAsync()
 {
-   // Task task =  PossibleExceptionAsync();
+   Task task =  PossibleExceptionAsync();
     try
     {
-        await PossibleExceptionAsync();
+        await task;
+       // await PossibleExceptionAsync();
     }
     catch (NotSupportedException ex)
     {
