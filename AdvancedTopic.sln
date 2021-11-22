@@ -41,6 +41,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TaskCompletedSourceSample",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLinqSample", "PLinqSample\PLinqSample.csproj", "{8FF2E577-1504-40B4-A039-6D2ED1AC5927}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IAsyncEnumerableSample", "IAsyncEnumerableSample\IAsyncEnumerableSample.csproj", "{0DEA6F47-14E0-44C0-A5CE-EC4780FDB956}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionTreeSample", "ExpressionTreeSample\ExpressionTreeSample.csproj", "{7DFD2A6D-9863-4C67-9E6A-44AA7F0DC41F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +127,14 @@ Global
 		{8FF2E577-1504-40B4-A039-6D2ED1AC5927}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8FF2E577-1504-40B4-A039-6D2ED1AC5927}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8FF2E577-1504-40B4-A039-6D2ED1AC5927}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DEA6F47-14E0-44C0-A5CE-EC4780FDB956}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DEA6F47-14E0-44C0-A5CE-EC4780FDB956}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DEA6F47-14E0-44C0-A5CE-EC4780FDB956}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DEA6F47-14E0-44C0-A5CE-EC4780FDB956}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFD2A6D-9863-4C67-9E6A-44AA7F0DC41F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFD2A6D-9863-4C67-9E6A-44AA7F0DC41F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFD2A6D-9863-4C67-9E6A-44AA7F0DC41F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFD2A6D-9863-4C67-9E6A-44AA7F0DC41F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

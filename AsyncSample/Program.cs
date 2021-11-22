@@ -4,6 +4,13 @@ using System;
 
 #region 1. CancellationTokenSource
 
+var tokenSource = new CancellationTokenSource();
+
+tokenSource.Cancel();
+var res = await CancellationTokenSample.ConnectAsync(tokenSource.Token);
+
+Console.WriteLine(res);
+
 #region 线程取消 
 
 //////新建cts注册取消执行的回调方法 

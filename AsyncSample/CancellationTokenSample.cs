@@ -1,4 +1,6 @@
 ﻿
+using System.Net.Sockets;
+
 namespace AsyncSample;
 public class CancellationTokenSample
 {
@@ -49,6 +51,18 @@ public class CancellationTokenSample
     {
         await Task.Delay(5000, cancellationToken);
         return "ok";
+    }
+
+
+    public static  ValueTask<int> ConnectAsync(CancellationToken token)
+    {
+        var client = new TcpClient();
+        if(token.IsCancellationRequested)
+        {
+             return new ValueTask<int>(Task.FromCanceled<int>(token));
+        }
+
+        return new ValueTask<int>(1);
     }
 }
 

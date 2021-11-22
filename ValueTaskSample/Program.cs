@@ -3,6 +3,9 @@
 int result =await  SomeValueTaskReturningMethodAsync();
 int result2 = await SomeValueTaskReturningMethodSync();
 
+
+
+
 Console.WriteLine(result);
 Console.WriteLine(result2); 
 //int result1 = await SomeValueTaskReturningMethodAsync().ConfigureAwait(false);
@@ -73,3 +76,5 @@ static void LogToConsole(string message)
     Console.WriteLine("It is pretty cool…like something of David Bowie's – Blackstar.");
     Console.WriteLine("message");
 }
+
+
