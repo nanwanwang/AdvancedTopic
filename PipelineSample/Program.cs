@@ -1,2 +1,10 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using PipelineSample;
+using System.IO.Pipes;
+
+
+await Task.Factory.StartNew(async () => await NamedPipeServer.StartAsync());
+
+await NamedPipeClient.StartAsync();
+
+Console.ReadLine();
+
