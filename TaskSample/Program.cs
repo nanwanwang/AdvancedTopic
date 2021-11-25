@@ -1,9 +1,28 @@
-﻿
+﻿using TaskSample;
 
 // await TrySomethingAsync();
-await DoSomethingAsync();
-Console.WriteLine("hello demon");
+//await DoSomethingAsync();
+//Console.WriteLine("hello demon");
 //Console.ReadKey();
+
+//var res = await TaskExample.DownloadStringWithRetries("http://www.google.com");
+
+//if (res != null) Console.WriteLine(res);
+
+//var res2 = await TaskExample.DownloadStringWithTimeout("http://www.google.com");
+
+//if (res2 != null) Console.WriteLine(res2);
+
+//await TaskExample.DownloadAllAsync(new List<string> { "http://www.google.com", "http://www.baidu.com" });
+
+//await TaskExample.ObserveOneExceptionAsync();
+
+//await TaskExample.ObserveTwoExceptionAsync();
+
+//await TaskExample.ProcessTaskAsync();
+await TaskExample.ProcessTaskAsync2();
+
+Console.ReadKey();
 
 
 static async Task TrySomethingAsync()
