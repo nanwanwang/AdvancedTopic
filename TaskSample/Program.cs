@@ -20,7 +20,9 @@
 //await TaskExample.ObserveTwoExceptionAsync();
 
 //await TaskExample.ProcessTaskAsync();
-await TaskExample.ProcessTaskAsync2();
+//await TaskExample.ProcessTaskAsync2();
+
+ TaskExample.TestAsync();
 
 Console.ReadKey();
 

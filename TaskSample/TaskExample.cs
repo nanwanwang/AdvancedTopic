@@ -144,16 +144,11 @@ namespace TaskSample
             throw new InvalidOperationException("Test");
         }
 
-        static async Task TestAsync()
+        public static async Task TestAsync()
         {
-            try
-            {
+            
                 await ThrowExceptionAsync();
-            }
-            catch (InvalidOperationException)
-            {
-
-            }
+           
         }
     }
 }

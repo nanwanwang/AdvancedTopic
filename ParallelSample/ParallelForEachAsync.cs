@@ -1,5 +1,6 @@
 ﻿using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using System.Threading.Tasks.Dataflow;
 
 namespace ParallelSample;
 
@@ -74,6 +75,36 @@ public class ParallelForEachAsync
         });
 
         return masterTotal;
+    }
+
+    public static int ParallelSum0(IEnumerable<int> vs)
+    {
+        object mutex = new object();
+        int result = 0;
+
+        Parallel.ForEach(vs, localInit: () => 0, body: (item, state, localValue) => localValue + item, localFinally: localValue =>
+         {
+             lock (mutex)
+             {
+                 result += localValue;
+             }
+         });
+
+         return result;
+       
+        
+    }
+
+
+    public static int ParallelSum1(IEnumerable<int> values)
+    {
+         return values.AsParallel().Sum();
+    }
+
+
+    public static int ParallelSum2(IEnumerable<int> vs)
+    {
+        return vs.AsEnumerable().Aggregate(seed:0,func:(sum,item)=>sum+ item);
     }
 
 }
