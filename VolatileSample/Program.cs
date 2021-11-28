@@ -1,2 +1,8 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using VolatileSample;
+
+var example= new VolitaleExample();
+//example.TestVolitale();
+
+example.WorkerTest();
+
+Console.ReadLine();
