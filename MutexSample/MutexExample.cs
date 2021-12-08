@@ -12,6 +12,7 @@ namespace MutexSample
         static Mutex _lock = new Mutex ();
         static object obj = new object ();
         static ManualResetEvent ManualReset=new ManualResetEvent (false);
+        static AutoResetEvent AutoResetEvent=new AutoResetEvent (false);
         static int count = 0;
 
         public static bool IsSingleInstance()
@@ -52,9 +53,14 @@ namespace MutexSample
                     //_lock.ReleaseMutex();
 
                     //manualresetevent
-                    ManualReset.Set();
+                    //ManualReset.Set();
+                    //count++;
+                    //ManualReset.Reset ();
+
+                    //autoresetevent
+                    AutoResetEvent.Set();
                     count++;
-                    ManualReset.Reset ();
+                    AutoResetEvent.Reset();
                 });
                 thread.IsBackground = true;
                 thread.Start();
