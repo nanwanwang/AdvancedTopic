@@ -24,7 +24,12 @@ namespace SourceLearning_WebApi
             var hostBuidler = Host.CreateDefaultBuilder(args);
             hostBuidler.ConfigureServices(services => services.AddTransient<IStartupFilter, FirstStartupFilter>());
 
-            hostBuidler.ConfigureWebHostDefaults(webBuilder => { webBuilder.UseStartup<Startup>(); });
+            hostBuidler.ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseSetting(WebHostDefaults.HostingStartupAssembliesKey,
+                    "SkyAPM.Agent.AspNetCore;HostStartupSample");
+                webBuilder.UseStartup(typeof(Startup).Assembly.FullName);
+            });
             hostBuidler.ConfigureServices(services => services.AddTransient<IStartupFilter, ThirdStartupFilter>());
             return hostBuidler;
         }

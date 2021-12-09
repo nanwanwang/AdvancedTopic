@@ -13,7 +13,7 @@ internal class Client
     public static async Task<Socket> ConnectServerAsync(int timeout)
     {
 
-        TcpClient
+       // TcpClient
         var socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
         var tokenSource = new CancellationTokenSource();

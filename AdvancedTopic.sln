@@ -75,6 +75,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceLearning-WebApi", "So
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceLearning-Mvc", "SourceLearning-Mvc\SourceLearning-Mvc.csproj", "{13A14BA3-BC2E-4A54-B224-0FB60CC634EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostStartupSample", "HostStartupSample\HostStartupSample.csproj", "{10969224-9BE8-44AF-9F13-5519BC197704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -225,6 +227,10 @@ Global
 		{13A14BA3-BC2E-4A54-B224-0FB60CC634EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13A14BA3-BC2E-4A54-B224-0FB60CC634EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13A14BA3-BC2E-4A54-B224-0FB60CC634EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10969224-9BE8-44AF-9F13-5519BC197704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10969224-9BE8-44AF-9F13-5519BC197704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10969224-9BE8-44AF-9F13-5519BC197704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10969224-9BE8-44AF-9F13-5519BC197704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
