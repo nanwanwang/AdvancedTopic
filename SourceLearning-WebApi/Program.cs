@@ -24,12 +24,33 @@ namespace SourceLearning_WebApi
         {
             var hostBuidler = Host.CreateDefaultBuilder(args);
             hostBuidler.ConfigureServices(services => services.AddTransient<IStartupFilter, FirstStartupFilter>());
+            hostBuidler.ConfigureAppConfiguration((context, config) =>
+            {
+                //config.Sources.Clear();
+                var env = context.HostingEnvironment;
+                // config.AddJsonFile("appsettings.json", true, true)
+                //     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true);
+                ConfigurationBinder
+                // config.AddEnvironmentVariables("MY_");
+                // config.AddXmlFile("appsettings.xml", true, true);
+                // config.AddIniFile("appsettings.ini", true, true);
+                config.AddInMemoryCollection(new Dictionary<string, string>
+                {
+                    ["Book:Name"] = "Memmory book name",
+                    ["Book:Authors:0"] = "Memory book author A",
+                    ["Book:Authors:1"] = "Memory book author B",
+                    ["Book:Bookmark:Remarks"] = "Memory bookmark remarks"
+                });
+               // config.AddCommandLine(args);
+            });
 
             hostBuidler.ConfigureWebHostDefaults(webBuilder =>
             {
+               
                 webBuilder.UseSetting(WebHostDefaults.HostingStartupAssembliesKey,
                     "SkyAPM.Agent.AspNetCore;HostStartupSample");
                 webBuilder.UseStartup(typeof(Startup).Assembly.FullName);
+                webBuilder.UseUrls("http://localhost:5002","https://localhost:5003");
             });
             hostBuidler.ConfigureServices(services => services.AddTransient<IStartupFilter, ThirdStartupFilter>());
             hostBuidler.UseServiceProviderFactory(new AutofacServiceProviderFactory());

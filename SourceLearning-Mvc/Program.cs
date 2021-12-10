@@ -21,6 +21,7 @@ namespace SourceLearning_Mvc
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+                    webBuilder.UseUrls("http://*:5002", "https://*:5003");
                 });
     }
 }

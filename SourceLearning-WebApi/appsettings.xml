@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+    <Book>
+        <Name>appsettings.xml book name</Name>
+        <Authors name="0">appsettings.xml author name A</Authors>
+        <Authors name="1">appsettings.xml author name B</Authors>
+        <Bookmark>
+            <Remarks>appsettings.xml bookmark remarks hahhahhahh</Remarks>
+        </Bookmark>
+    </Book>
+</configuration>
