@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac.Extensions.DependencyInjection;
 
 namespace SourceLearning_WebApi
 {
@@ -31,6 +32,7 @@ namespace SourceLearning_WebApi
                 webBuilder.UseStartup(typeof(Startup).Assembly.FullName);
             });
             hostBuidler.ConfigureServices(services => services.AddTransient<IStartupFilter, ThirdStartupFilter>());
+            hostBuidler.UseServiceProviderFactory(new AutofacServiceProviderFactory());
             return hostBuidler;
         }
     }
