@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using System.Xml;
 using Microsoft.Extensions.Configuration;
 
 namespace SourceLearning_WebApi.Controllers
@@ -50,6 +51,12 @@ namespace SourceLearning_WebApi.Controllers
         public IEnumerable<WeatherForecast> Get([FromServices] DependencyService4 dependencyService4)
         {
             var bookOptions = _configuration.GetSection(BookOptions.Book).Get<BookOptions>();
+            foreach (var item in  _configuration.AsEnumerable())
+            {
+                Console.WriteLine(item.Key+"="+item.Value);
+            }
+
+           
             Console.WriteLine(JsonSerializer.Serialize(bookOptions));
             Console.WriteLine(UserService.Get());
 
