@@ -77,6 +77,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceLearning-Mvc", "Sourc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HostStartupSample", "HostStartupSample\HostStartupSample.csproj", "{10969224-9BE8-44AF-9F13-5519BC197704}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazySample", "LazySample\LazySample.csproj", "{ACA111F8-934A-482F-831A-D8E20AAF8BEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeTokenSample", "ChangeTokenSample\ChangeTokenSample.csproj", "{40C79654-0932-4842-A8F2-C96A4435FF6B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -231,6 +235,14 @@ Global
 		{10969224-9BE8-44AF-9F13-5519BC197704}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{10969224-9BE8-44AF-9F13-5519BC197704}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{10969224-9BE8-44AF-9F13-5519BC197704}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACA111F8-934A-482F-831A-D8E20AAF8BEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACA111F8-934A-482F-831A-D8E20AAF8BEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACA111F8-934A-482F-831A-D8E20AAF8BEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACA111F8-934A-482F-831A-D8E20AAF8BEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

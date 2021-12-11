@@ -8,6 +8,7 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Xml;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 
 namespace SourceLearning_WebApi.Controllers
 {
@@ -25,7 +26,11 @@ namespace SourceLearning_WebApi.Controllers
         private readonly DependencyService4 _service4;
         private readonly IConfiguration _configuration;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,DependencyService4 service4, DependencyService3 service3, DependencyService2 service2, DependencyService1 service1, IEnumerable<IService> services, IConfiguration configuration)
+        private readonly IOptionsSnapshot<DateTimeOptions> _optionsSnapshot;
+        private readonly IOptions<DateTimeOptions> _options;
+        private readonly IOptionsMonitor<DateTimeOptions> _optionsMonitor;
+
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,DependencyService4 service4, DependencyService3 service3, DependencyService2 service2, DependencyService1 service1, IEnumerable<IService> services, IConfiguration configuration, IOptionsSnapshot<DateTimeOptions> optionsSnapshot, IOptions<DateTimeOptions> options, IOptionsMonitor<DateTimeOptions> optionsMonitor)
         {
             _logger = logger;
             _service4 = service4;
@@ -34,6 +39,9 @@ namespace SourceLearning_WebApi.Controllers
             _service1 = service1;
             _services = services;
             _configuration = configuration;
+            _optionsSnapshot = optionsSnapshot;
+            _options = options;
+            _optionsMonitor = optionsMonitor;
         }
 
 
@@ -48,13 +56,32 @@ namespace SourceLearning_WebApi.Controllers
       
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get([FromServices] DependencyService4 dependencyService4)
+        public IEnumerable<WeatherForecast> Get([FromServices] DependencyService4 dependencyService4,[FromServices] IOptions<BookOptions> _bookOptions)
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("----------------------------------");
+           
+            var options=  _options.Value;
+            Console.WriteLine("options=>"+JsonSerializer.Serialize(options));
+
+            var beijingOptions1 = _optionsSnapshot.Get(DateTimeOptions.Beijing);
+            var toykoOptions1 = _optionsSnapshot.Get(DateTimeOptions.Tokyo);
+
+            Console.WriteLine("beijingOptions1=> "+JsonSerializer.Serialize(beijingOptions1));
+            Console.WriteLine("toykoOptions1=> "+JsonSerializer.Serialize(toykoOptions1));
+            
+            var beijingOptions2 = _optionsMonitor.Get(DateTimeOptions.Beijing);
+            var toykoOptions2 = _optionsMonitor.Get(DateTimeOptions.Tokyo);
+            Console.WriteLine("beijingOptions2=> "+JsonSerializer.Serialize(beijingOptions2));
+            Console.WriteLine("toykoOptions2=> "+JsonSerializer.Serialize(toykoOptions2));
+            Console.WriteLine("----------------------------------");
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine(JsonSerializer.Serialize(_bookOptions.Value));
             var bookOptions = _configuration.GetSection(BookOptions.Book).Get<BookOptions>();
-            foreach (var item in  _configuration.AsEnumerable())
-            {
-                Console.WriteLine(item.Key+"="+item.Value);
-            }
+            // foreach (var item in  _configuration.AsEnumerable())
+            // {
+            //     Console.WriteLine(item.Key+"="+item.Value);
+            // }
 
            
             Console.WriteLine(JsonSerializer.Serialize(bookOptions));

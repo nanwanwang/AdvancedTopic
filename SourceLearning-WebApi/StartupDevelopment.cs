@@ -28,28 +28,44 @@ namespace SourceLearning_WebApi
 
         public IWebHostEnvironment WebHostEnvironment { get; set; }
         public IConfiguration Configuration { get; }
-        
+
         public ILifetimeScope AutofacContainer { get; private set; }
 
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var book2Options1 = new Book2Options();
+            // 方式一: 使用bind 绑定
+            Configuration.GetSection(Book2Options.Book).Bind(book2Options1);
+
+            // 方式二: 使用get方式获取
+            var book2Options2 = Configuration.GetSection(Book2Options.Book).Get<Book2Options>();
+
+            // 依赖注入book2options
+            services.Configure<Book2Options>(Configuration.GetSection(Book2Options.Book));
+            
+            // 命名选项
+            services.Configure<DateTimeOptions>(DateTimeOptions.Beijing,
+                Configuration.GetSection($"DateTime:{DateTimeOptions.Beijing}"));
+            services.Configure<DateTimeOptions>(DateTimeOptions.Tokyo,
+                Configuration.GetSection($"DateTime:{DateTimeOptions.Tokyo}"));
+
             services.AddTransient<DependencyService1>();
             services.AddScoped(typeof(DependencyService2));
             //services.TryAddEnumerable(ServiceDescriptor.Transient<IService,DependencyService3>());
-            services.TryAddEnumerable(ServiceDescriptor.Transient<IService,DependencyService4>());
+            services.TryAddEnumerable(ServiceDescriptor.Transient<IService, DependencyService4>());
             // //services.AddScoped<DependencyService2>();
             services.AddSingleton<DependencyService3>();
             // services.AddSingleton<IService, DependencyService4>(sp => new DependencyService4() { Name = "service4-0" });
             // services.TryAddSingleton<IService, DependencyService4>();
-             services.AddSingleton(sp => new DependencyService4());
+            services.AddSingleton(sp => new DependencyService4());
             // services.AddSingleton<IService, DependencyService4>(sp => new DependencyService4() { Name = "service4-1" });
-            
+
             // services.Remove()
             //
             //
-            
+
             services.AddTransient<ITransientService, TransientService>();
             services.AddScoped<IScopedService, ScopedService>();
             services.AddSingleton<ISingletonService, SingletonService>();
@@ -85,8 +101,8 @@ namespace SourceLearning_WebApi
         {
             builder.RegisterModule(new AutofacModule());
         }
-        
-        public class AutofacModule:Autofac.Module
+
+        public class AutofacModule : Autofac.Module
         {
             protected override void Load(ContainerBuilder builder)
             {
