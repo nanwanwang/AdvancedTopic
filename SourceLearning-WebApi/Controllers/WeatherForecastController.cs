@@ -29,8 +29,9 @@ namespace SourceLearning_WebApi.Controllers
         private readonly IOptionsSnapshot<DateTimeOptions> _optionsSnapshot;
         private readonly IOptions<DateTimeOptions> _options;
         private readonly IOptionsMonitor<DateTimeOptions> _optionsMonitor;
+        private readonly IOptionsSnapshot<Book2Options> _book2Options;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger,DependencyService4 service4, DependencyService3 service3, DependencyService2 service2, DependencyService1 service1, IEnumerable<IService> services, IConfiguration configuration, IOptionsSnapshot<DateTimeOptions> optionsSnapshot, IOptions<DateTimeOptions> options, IOptionsMonitor<DateTimeOptions> optionsMonitor)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger,DependencyService4 service4, DependencyService3 service3, DependencyService2 service2, DependencyService1 service1, IEnumerable<IService> services, IConfiguration configuration, IOptionsSnapshot<DateTimeOptions> optionsSnapshot, IOptions<DateTimeOptions> options, IOptionsMonitor<DateTimeOptions> optionsMonitor, IOptionsSnapshot<Book2Options> book2Options)
         {
             _logger = logger;
             _service4 = service4;
@@ -42,6 +43,7 @@ namespace SourceLearning_WebApi.Controllers
             _optionsSnapshot = optionsSnapshot;
             _options = options;
             _optionsMonitor = optionsMonitor;
+            _book2Options = book2Options;
         }
 
 
@@ -58,6 +60,8 @@ namespace SourceLearning_WebApi.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get([FromServices] DependencyService4 dependencyService4,[FromServices] IOptions<BookOptions> _bookOptions)
         {
+
+            var  book2Options=_book2Options.Value;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("----------------------------------");
            

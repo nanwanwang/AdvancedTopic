@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 
 namespace SourceLearning_WebApi
 {
@@ -35,21 +36,36 @@ namespace SourceLearning_WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var book2Options1 = new Book2Options();
+            //var book2Options1 = new Book2Options();
             // 方式一: 使用bind 绑定
-            Configuration.GetSection(Book2Options.Book).Bind(book2Options1);
+           // Configuration.GetSection(Book2Options.Book).Bind(book2Options1);
 
             // 方式二: 使用get方式获取
-            var book2Options2 = Configuration.GetSection(Book2Options.Book).Get<Book2Options>();
+            //var book2Options2 = Configuration.GetSection(Book2Options.Book).Get<Book2Options>();
 
             // 依赖注入book2options
-            services.Configure<Book2Options>(Configuration.GetSection(Book2Options.Book));
+            //services.Configure<Book2Options>(Configuration.GetSection(Book2Options.Book));
+            // services.AddOptions<Book2Options>().Bind(Configuration.GetSection(Book2Options.Book))
+            //     .ValidateDataAnnotations().Validate(
+            //         options => !options.Author.Contains("A"));
+
+            //使用IValidateOptions<TOptions> 接口进行校验
+            // services.Configure<Book2Options>(Configuration.GetSection(Book2Options.Book));
+            // services.AddSingleton<IValidateOptions<Book2Options>, Book2Validation>();
+            // services.TryAddEnumerable(ServiceDescriptor.Singleton<IValidateOptions<Book2Options>,Book2Validation>());
             
             // 命名选项
-            services.Configure<DateTimeOptions>(DateTimeOptions.Beijing,
-                Configuration.GetSection($"DateTime:{DateTimeOptions.Beijing}"));
-            services.Configure<DateTimeOptions>(DateTimeOptions.Tokyo,
-                Configuration.GetSection($"DateTime:{DateTimeOptions.Tokyo}"));
+            // services.Configure<DateTimeOptions>(DateTimeOptions.Beijing,
+            //     Configuration.GetSection($"DateTime:{DateTimeOptions.Beijing}"));
+            // services.Configure<DateTimeOptions>(DateTimeOptions.Tokyo,
+            //     Configuration.GetSection($"DateTime:{DateTimeOptions.Tokyo}"));
+
+            services.AddOptions<DateTimeOptions>(DateTimeOptions.Beijing).Configure<IHostEnvironment>((o, s) =>
+            {
+                o.Year = s.EnvironmentName == "Development" ? 2000 : 1989;
+            });
+            
+            //
 
             services.AddTransient<DependencyService1>();
             services.AddScoped(typeof(DependencyService2));
