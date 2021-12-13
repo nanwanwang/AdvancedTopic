@@ -26,7 +26,12 @@ namespace SourceLearning_WebApi
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
             var hostBuidler = Host.CreateDefaultBuilder(args);
-            hostBuidler.ConfigureServices(services => services.AddTransient<IStartupFilter, FirstStartupFilter>());
+            
+            hostBuidler.ConfigureServices(services =>
+            {
+                services.AddTransient<IStartupFilter, FirstStartupFilter>();
+               
+            });
             hostBuidler.ConfigureAppConfiguration((context, config) =>
             {
                 //config.Sources.Clear();
@@ -54,10 +59,10 @@ namespace SourceLearning_WebApi
 
             hostBuidler.ConfigureWebHostDefaults(webBuilder =>
             {
-               
                 webBuilder.UseSetting(WebHostDefaults.HostingStartupAssembliesKey,
                     "SkyAPM.Agent.AspNetCore;HostStartupSample");
                 webBuilder.UseStartup(typeof(Startup).Assembly.FullName);
+              
                 //webBuilder.UseUrls("http://localhost:5002","https://localhost:5003");
             });
             hostBuidler.ConfigureServices(services =>
