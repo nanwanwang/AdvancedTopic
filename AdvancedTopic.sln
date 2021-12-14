@@ -81,6 +81,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LazySample", "LazySample\La
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChangeTokenSample", "ChangeTokenSample\ChangeTokenSample.csproj", "{40C79654-0932-4842-A8F2-C96A4435FF6B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeakReferenceSample", "WeakReferenceSample\WeakReferenceSample.csproj", "{D9FF8369-435C-4B04-A562-C11007344C09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Swagger", "Swagger\Swagger.csproj", "{1FC940DB-5DBC-4E11-AFA1-4AAF42B14959}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -243,6 +247,14 @@ Global
 		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40C79654-0932-4842-A8F2-C96A4435FF6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9FF8369-435C-4B04-A562-C11007344C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9FF8369-435C-4B04-A562-C11007344C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9FF8369-435C-4B04-A562-C11007344C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9FF8369-435C-4B04-A562-C11007344C09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC940DB-5DBC-4E11-AFA1-4AAF42B14959}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC940DB-5DBC-4E11-AFA1-4AAF42B14959}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC940DB-5DBC-4E11-AFA1-4AAF42B14959}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC940DB-5DBC-4E11-AFA1-4AAF42B14959}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
