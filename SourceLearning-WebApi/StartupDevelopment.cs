@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Autofac;
@@ -10,8 +12,10 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
+using Microsoft.Net.Http.Headers;
 
 namespace SourceLearning_WebApi
 {
@@ -130,6 +134,7 @@ namespace SourceLearning_WebApi
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SourceLearning_WebApi", Version = "v1" });
             //});
+           // services.AddDirectoryBrowser();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -282,9 +287,50 @@ namespace SourceLearning_WebApi
 
             //app.UseHttpsRedirection();
 
+            var fileServerOptions1 = new FileServerOptions();
+            fileServerOptions1.DefaultFilesOptions.DefaultFileNames.Add("index1.html");
+            app.UseFileServer(fileServerOptions1);
+            var fileServerOptions = new FileServerOptions()
+            {
+                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "file")),
+                RequestPath = "/file",
+                EnableDirectoryBrowsing = true
+            };
+            fileServerOptions.StaticFileOptions.OnPrepareResponse = ctx =>
+            {
+                ctx.Context.Response.Headers.Add(HeaderNames.CacheControl, "public,max-age=600");
+            };
+     
+            app.UseFileServer(fileServerOptions);
+            // app.UseDefaultFiles(new DefaultFilesOptions()
+            // {
+            //     DefaultFileNames = new List<string>(){"index1.html"},
+            //     FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath,"wwwroot"))
+            // });
+            // app.UseStaticFiles();
+            //
+            //
+            // app.UseDirectoryBrowser();
+            // app.UseDirectoryBrowser(new DirectoryBrowserOptions()
+            // {
+            //     FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "file")),
+            //     RequestPath = "/file"
+            // });
+
             app.UseRouting();
 
-            //app.UseAuthorization();
+            // app.UseAuthorization();
+            // app.UseAuthorization();
+            //
+            // app.UseStaticFiles(new StaticFileOptions()
+            // {
+            //     FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath,"file")),
+            //     RequestPath = "/file",
+            //     // OnPrepareResponse = ctx =>
+            //     // {
+            //     //     ctx.Context.Response.Headers.Add(HeaderNames.CacheControl,"public,max-age=600");
+            //     // }
+            // });
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }

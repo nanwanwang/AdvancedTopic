@@ -36,6 +36,7 @@ namespace InterlockedSample
 
         static bool UseResource()
         {
+            // 如果usingResource 交换之前为0 ,就可以获取锁执行代码
             if (0 == Interlocked.Exchange(ref usingResource, 1))
             {
                 Console.WriteLine("{0} acquired the lock", Thread.CurrentThread.Name);

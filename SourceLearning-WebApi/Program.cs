@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration.Ini;
 using Microsoft.Extensions.Configuration.Json;
@@ -76,6 +77,7 @@ namespace SourceLearning_WebApi
 
                 });
             });
+           
             hostBuidler.UseServiceProviderFactory(new AutofacServiceProviderFactory());
             return hostBuidler;
         }
