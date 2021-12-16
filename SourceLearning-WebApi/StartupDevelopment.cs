@@ -5,10 +5,12 @@ using System.Linq;
 using System.Reflection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Google.Protobuf.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -16,6 +18,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
+using ServiceDescriptor = Microsoft.Extensions.DependencyInjection.ServiceDescriptor;
 
 namespace SourceLearning_WebApi
 {
@@ -287,21 +290,41 @@ namespace SourceLearning_WebApi
 
             //app.UseHttpsRedirection();
 
-            var fileServerOptions1 = new FileServerOptions();
-            fileServerOptions1.DefaultFilesOptions.DefaultFileNames.Add("index1.html");
-            app.UseFileServer(fileServerOptions1);
-            var fileServerOptions = new FileServerOptions()
-            {
-                FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "file")),
-                RequestPath = "/file",
-                EnableDirectoryBrowsing = true
-            };
-            fileServerOptions.StaticFileOptions.OnPrepareResponse = ctx =>
-            {
-                ctx.Context.Response.Headers.Add(HeaderNames.CacheControl, "public,max-age=600");
-            };
-     
+            // var fileServerOptions1 = new FileServerOptions();
+            // fileServerOptions1.DefaultFilesOptions.DefaultFileNames.Add("index1.html");
+            // app.UseFileServer(fileServerOptions1);
+            // var fileServerOptions = new FileServerOptions()
+            // {
+            //     FileProvider = new PhysicalFileProvider(Path.Combine(env.ContentRootPath, "file")),
+            //     RequestPath = "/file",
+            //     EnableDirectoryBrowsing = true
+            // };
+            // fileServerOptions.StaticFileOptions.OnPrepareResponse = ctx =>
+            // {
+            //     ctx.Context.Response.Headers.Add(HeaderNames.CacheControl, "public,max-age=600");
+            // };
+            //
+            // app.UseFileServer(fileServerOptions);
+            
+            //添加embeddedfileprovider
+            // var fileServerOptions = new FileServerOptions();
+            // fileServerOptions.StaticFileOptions.FileProvider =
+            //     new ManifestEmbeddedFileProvider(Assembly.GetExecutingAssembly(), "/file");
+            // fileServerOptions.StaticFileOptions.RequestPath = "/file";
+            // fileServerOptions.EnableDirectoryBrowsing = true;
+            // app.UseFileServer(fileServerOptions);
+            
+            //compositefileprovider
+            var fileServerOptions = new FileServerOptions();
+            var fileProvider = new CompositeFileProvider(env.WebRootFileProvider,
+                new ManifestEmbeddedFileProvider(Assembly.GetExecutingAssembly(), "/file"));
+            fileServerOptions.FileProvider = fileProvider;
+            fileServerOptions.RequestPath = "/composite";
             app.UseFileServer(fileServerOptions);
+            
+
+           
+            
             // app.UseDefaultFiles(new DefaultFilesOptions()
             // {
             //     DefaultFileNames = new List<string>(){"index1.html"},
