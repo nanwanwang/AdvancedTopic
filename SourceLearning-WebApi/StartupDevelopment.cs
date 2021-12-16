@@ -7,6 +7,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Google.Protobuf.Reflection;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Microsoft.Net.Http.Headers;
 using ServiceDescriptor = Microsoft.Extensions.DependencyInjection.ServiceDescriptor;
@@ -133,11 +135,12 @@ namespace SourceLearning_WebApi
             services.AddControllers().AddControllersAsServices();
 
             services.AddHostedService<LifetimeEventsHostedService>();
+            services.AddSingleton<IDeveloperPageExceptionFilter, MyDeveloperPageExceptionFilter>();
             //services.AddSwaggerGen(c =>
             //{
             //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "SourceLearning_WebApi", Version = "v1" });
             //});
-           // services.AddDirectoryBrowser();
+            // services.AddDirectoryBrowser();
         }
 
         public void ConfigureContainer(ContainerBuilder builder)
@@ -161,7 +164,30 @@ namespace SourceLearning_WebApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            
+            
+            // if (env.IsDevelopment())
+            // {
+            //     app.UseDeveloperExceptionPage();
+            // }
+            //app.usesta
+            // app.UseExceptionHandler(appBuilder =>
+            // {
+            //     var loggFactory = appBuilder.ApplicationServices.GetRequiredService<ILoggerFactory>();
+            //     var logger = loggFactory.CreateLogger("ExceptionHandlerWithLambda");
+            //     appBuilder.Run(handler =>
+            //     {
+            //         
+            //     });
+            // })
             AutofacContainer = app.ApplicationServices.GetAutofacRoot();
+            app.Use((context, next) =>
+            {
+                throw new NotImplementedException();
+            });
+           
+
+       
 
             // app.UseBaseFactoryMiddleware();
             app.UseMyMiddleware();
