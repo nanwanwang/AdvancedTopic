@@ -12,13 +12,14 @@ namespace SourceLearning_Mvc.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        public IndexModel(ILoggerFactory loggerFactory)
         {
-            _logger = logger;
+            _logger = loggerFactory.CreateLogger<IndexModel>();
         }
 
         public void OnGet()
         {
+            _logger.LogWarning("onget()");
 
         }
     }

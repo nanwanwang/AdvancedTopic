@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace SourceLearning_Mvc
 {
@@ -24,6 +25,7 @@ namespace SourceLearning_Mvc
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IDeveloperPageExceptionFilter,MyDeveloperPageExceptionFilter>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -39,6 +41,11 @@ namespace SourceLearning_Mvc
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.Use((context, next) =>
+            {
+                throw new Exception("error");
+            });
 
            // app.UseHttpsRedirection();
             app.UseStaticFiles();

@@ -63,7 +63,7 @@ using System.Text.Json.Serialization;
 // }
 
 //4.0 MemoryPool<T>
-using var fs = new FileStream("test.txt", FileMode.Open);
+await using var fs = new FileStream("test.txt", FileMode.Open);
 var length = (int)fs.Length;
 var memoryOwner = MemoryPool<byte>.Shared.Rent(length);
 await fs.ReadAsync(memoryOwner.Memory);
