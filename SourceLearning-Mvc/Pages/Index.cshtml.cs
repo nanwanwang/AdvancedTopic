@@ -20,6 +20,9 @@ namespace SourceLearning_Mvc.Pages
         public void OnGet()
         {
             _logger.LogWarning("onget()");
+            int a = 1;
+            int b = 0;
+            int c = a / b;
 
         }
     }
