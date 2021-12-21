@@ -79,7 +79,7 @@ app.Logger.LogInformation($"{builder.Environment.ContentRootPath}");
 app.Logger.LogInformation($"{builder.Environment.EnvironmentName}");
 app.Logger.LogInformation($"{builder.Environment.WebRootPath}");
 
-app.Logger.LogError(sampleService.DoSomething());
+app.Logger.LogError(sampleService!.DoSomething());
 //write log
 app.Logger.LogInformation("The app started");
 //configuration
