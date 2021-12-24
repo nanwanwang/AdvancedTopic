@@ -1,13 +1,21 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.Filters;
 using SourceLearning_Mvc_controller;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddScoped<MyExceptionFilterAttribute>();
-builder.Services.AddControllersWithViews();
-
+builder.Services.AddControllersWithViews(options => options.Filters.Add<MyActionFilter>());
+builder.Services.AddMvc(options => options.Filters.Add<MyActionFilter>());
+builder.Services.AddControllers(options => options.Filters.Add<MyActionFilter>());
+builder.Services.AddScoped<MyActionFilterWithSeriverFilter>();
 
 var app = builder.Build();
+//ResourceExecutedContext  
+// IResourceFilter
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

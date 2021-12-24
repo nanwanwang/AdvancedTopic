@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ExpressionTreeToString" Version="3.4.70" />
+    <PackageReference Include="ZSpitz.Util" Version="0.1.118" />
+  </ItemGroup>
+
 </Project>
