@@ -95,6 +95,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGenerateLib", "Source
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spectre.ConsoleSample", "Spectre.ConsoleSample\Spectre.ConsoleSample.csproj", "{0103C832-8FD0-4C52-87B9-712CA248E3E1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriorityQueueSample", "PriorityQueueSample\PriorityQueueSample.csproj", "{67BA63E3-5C15-488C-B49F-0C36C002BD67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -285,6 +287,10 @@ Global
 		{0103C832-8FD0-4C52-87B9-712CA248E3E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0103C832-8FD0-4C52-87B9-712CA248E3E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0103C832-8FD0-4C52-87B9-712CA248E3E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BA63E3-5C15-488C-B49F-0C36C002BD67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BA63E3-5C15-488C-B49F-0C36C002BD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BA63E3-5C15-488C-B49F-0C36C002BD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BA63E3-5C15-488C-B49F-0C36C002BD67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

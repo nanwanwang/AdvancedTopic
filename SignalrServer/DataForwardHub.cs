@@ -7,6 +7,7 @@ namespace SignalrServer
     {
         public static ConcurrentDictionary<string ,string> ConnectClients = new ConcurrentDictionary<string, string>();
 
+        
         public override async Task OnConnectedAsync()
         {
             var deviceCode = Context.GetHttpContext()?.Request.Query["devicecode"];

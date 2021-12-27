@@ -2,7 +2,7 @@
 
 var connection = new HubConnectionBuilder()
               .WithAutomaticReconnect()
-              .WithUrl("http://localhost:5045/dataforwardhub?devicecode=DPRWI00152")
+              .WithUrl("http://localhost:5000/dataforwardhub?devicecode=DPRWI00152")
               .Build();
 
 await connection.StartAsync();
