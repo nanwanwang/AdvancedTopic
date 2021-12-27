@@ -15,8 +15,12 @@ ProxyGenerator generator = new ProxyGenerator();
 LoggerAsyncIntercecptor asyncIntercecptor = new LoggerAsyncIntercecptor(logger);
 IInterceptor loggerInterceptor = new LoggerInterceptor(logger,asyncIntercecptor);
 IProductRepository proxy = generator.CreateInterfaceProxyWithTarget(target,loggerInterceptor);
-await proxy.UpdateAsync(product);
 
+// use class the methos must be virtual method
+var productReposity =(ProductRepository) generator.CreateClassProxy(typeof(ProductRepository),loggerInterceptor);
+
+await proxy.UpdateAsync(product);
+await productReposity.UpdateAsync(product);
 // use autofac 
 ContainerBuilder builder = new();
 builder.RegisterType<LoggerAsyncIntercecptor>().AsSelf();
@@ -31,6 +35,10 @@ var container = builder.Build();
 var productRepository = container.Resolve<IProductRepository>();
 Product product1 = new() { Name = "book1" };
 await productRepository.UpdateAsync(product1);
+
+
+
+
 
 
 Console.ReadKey();

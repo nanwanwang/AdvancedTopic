@@ -2,7 +2,7 @@ namespace CastleProxy;
 
 public class ProductRepository:IProductRepository
 {
-    public void Update(Product product)
+    public virtual void Update(Product product)
     {
         Console.WriteLine("update data");
     }
