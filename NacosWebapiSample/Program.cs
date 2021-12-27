@@ -2,7 +2,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.ConfigureAppConfiguration((context, configurationBuilder) =>
 {
-    //configurationBuilder.addna
+    var config = configurationBuilder.Build();
+    configurationBuilder.AddNacosV2Configuration(config.GetSection("NacosConfig"));
+    // 也可以按需使用ini或yaml的解析器
+    // builder.AddNacosV2Configuration(c.GetSection("NacosConfig"), Nacos.IniParser.IniConfigurationStringParser.Instance);
+    // builder.AddNacosV2Configuration(c.GetSection("NacosConfig"), Nacos.YamlParser.YamlConfigurationStringParser.Instance);
 });
 
 // Add services to the container.

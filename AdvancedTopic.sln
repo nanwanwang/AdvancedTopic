@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacosConsoleSample", "Nacos
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NacosWebapiSample", "NacosWebapiSample\NacosWebapiSample.csproj", "{3B4478F1-B73E-4D45-9E69-80FABDC8A7BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CastleProxy", "CastleProxy\CastleProxy.csproj", "{C0D4AEAA-75AA-4038-94D6-7F7A1FC293A5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -303,6 +305,10 @@ Global
 		{3B4478F1-B73E-4D45-9E69-80FABDC8A7BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B4478F1-B73E-4D45-9E69-80FABDC8A7BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B4478F1-B73E-4D45-9E69-80FABDC8A7BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D4AEAA-75AA-4038-94D6-7F7A1FC293A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D4AEAA-75AA-4038-94D6-7F7A1FC293A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D4AEAA-75AA-4038-94D6-7F7A1FC293A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D4AEAA-75AA-4038-94D6-7F7A1FC293A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
