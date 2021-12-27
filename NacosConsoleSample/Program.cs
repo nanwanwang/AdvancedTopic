@@ -3,6 +3,8 @@ using Microsoft.Extensions.Hosting;
 using Nacos.V2.DependencyInjection;
 using NacosConsoleSample;
 
+
+
 var services = new ServiceCollection();
 services.AddNacosV2Config(options =>
 {
@@ -24,6 +26,7 @@ var service =  ActivatorUtilities.CreateInstance<App>(serviceProvider);
 
 await  service.RunAsync(args);
 
+Console.ReadKey();
 //var host = AppStartup();
 //var service = ActivatorUtilities.CreateInstance<App>(host.Services);
 
