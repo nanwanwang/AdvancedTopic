@@ -1,10 +1,59 @@
 ﻿
 
+using AspectCore.Configuration;
+using AspectCore.Extensions.DependencyInjection;
 using Autofac;
 using Autofac.Extras.DynamicProxy;
 using Castle.Core.Logging;
 using Castle.DynamicProxy;
 using CastleProxy;
+using Microsoft.Extensions.DependencyInjection;
+using AppContext = CastleProxy.AppContext;
+
+
+//aspect sample
+var services = new ServiceCollection();
+services.AddScoped<ICustomService, CustomService>();
+services.AddScoped<ICustomServiceWithArgs, CustomServiceWithArgs>();
+services.ConfigureDynamicProxy(configuration =>
+{
+    // 全局方式 注入 interceptor  可以过滤需要注入的服务
+    configuration.Interceptors.AddTyped<CustomInterceptorAttribute>(method =>
+        method.DeclaringType.Name.EndsWith("Service"));
+    //configuration.Interceptors.AddTyped<CustomInterceptorWithArgsAttribute>(new object[] { "custom" });
+} );
+var serviceProvider = services.BuildDynamicProxyProvider();
+
+var service = serviceProvider.GetRequiredService<ICustomService>();
+//var service = ActivatorUtilities.CreateInstance<CustomService>(serviceProvider);
+service.Call();
+var customServiceWithArgs = serviceProvider.GetRequiredService<ICustomServiceWithArgs>();
+customServiceWithArgs.Call();
+
+
+// mvc action sample
+var appContext = new AppContext();
+// object rs = appContext.Process("Test", "HelloWorld", "demon");
+// Console.WriteLine($"process 执行结果1:{rs}");
+// Console.WriteLine("=".PadRight(50, '='));
+appContext.AddExecRouteTemplate("{controller}/{action}/{name}");
+appContext.AddExecRouteTemplate("{action}/{controller}/{name}");
+object result1 = appContext.Run("HelloWorld/Test/demon");
+Console.WriteLine($"执行的结果1：{result1}");
+ 
+Console.WriteLine("=".PadRight(50, '='));
+ 
+object result2 = appContext.Run("Test/HelloWorld/demon");
+Console.WriteLine($"执行的结果2：{result2}");
+
+Console.WriteLine("=".PadRight(50, '='));
+ 
+appContext.AddExecRouteTemplate("{action}/{controller}/{a}/{b}");
+object result3 = appContext.Run("Add/Test/500/20");
+Console.WriteLine($"执行的结果3：{result3}");
+ 
+object result4 = appContext.Run("Test/TestError/demon");
+Console.WriteLine($"执行的结果4：{result4}");
 
 
 // basic usage
