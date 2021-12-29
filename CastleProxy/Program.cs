@@ -21,6 +21,9 @@ services.ConfigureDynamicProxy(configuration =>
     configuration.Interceptors.AddTyped<CustomInterceptorAttribute>(method =>
         method.DeclaringType.Name.EndsWith("Service"));
     //configuration.Interceptors.AddTyped<CustomInterceptorWithArgsAttribute>(new object[] { "custom" });
+    
+    // 添加全局忽略  跟在对应的类或接口上加[NonAspect]效果一样
+    configuration.NonAspectPredicates.AddMethod("Call");
 } );
 var serviceProvider = services.BuildDynamicProxyProvider();
 
@@ -29,7 +32,6 @@ var service = serviceProvider.GetRequiredService<ICustomService>();
 service.Call();
 var customServiceWithArgs = serviceProvider.GetRequiredService<ICustomServiceWithArgs>();
 customServiceWithArgs.Call();
-
 
 // mvc action sample
 var appContext = new AppContext();
