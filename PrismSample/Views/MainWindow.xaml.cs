@@ -12,8 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PrismSample.ViewModels;
 
-namespace PrismSample
+namespace PrismSample.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
