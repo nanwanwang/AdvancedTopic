@@ -7,10 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using Prism.Ioc;
 using Prism.Unity;
-using PrismSample.Sevices;
-using PrismSample.Views;
+using PrismCompositeCommandsSample.Commands;
 
-namespace PrismSample
+namespace PrismCompositeCommandsSample
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -19,14 +18,12 @@ namespace PrismSample
     {
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<ICustomerStore, DbCustomerStore>();
-         
+            containerRegistry.Register<IApplicationCommands, ApplicationCommands>();
         }
 
         protected override Window CreateShell()
         {
-            var window = Container.Resolve<MainWindow>();
-            return window;
+            throw new NotImplementedException();
         }
     }
 }

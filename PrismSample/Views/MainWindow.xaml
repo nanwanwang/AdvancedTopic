@@ -19,6 +19,7 @@
         </TextBox>
         <Button Height="100" Width="300" Content="Click Me" FontSize="50" Command="{Binding GetCurrentTimeCommand}"
               Name="myBtn"   CommandParameter="{Binding RelativeSource={RelativeSource Mode=Self}}" ></Button>
+        <Button x:Name="mybtn1" FontSize="30" Content="Click me 1" Margin="10" Height="60" Command="{Binding AsyncCommand}"></Button>
         <Viewbox Height="80">
             <CheckBox IsChecked="{Binding IsCanExecute}" Content="CanExecute"
                       Margin="10" HorizontalAlignment="Center" VerticalContentAlignment="Center"></CheckBox>

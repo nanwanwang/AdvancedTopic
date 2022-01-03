@@ -1,6 +1,9 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using Prism.Commands;
 using Prism.Mvvm;
@@ -53,6 +56,20 @@ namespace PrismSample.ViewModels
                                                              (_textChangedCommand =
                                                                  new DelegateCommand<object>(
                                                                      ExecuteTextChangedCommand));
+
+
+        private DelegateCommand _asyncCommand;
+        public DelegateCommand AsyncCommand => _asyncCommand ?? (_asyncCommand = new DelegateCommand(async ()=>await  ExampleMethodAsync()));
+
+        async Task ExampleMethodAsync()
+        {
+            await Task.Run(() =>
+            {
+                Thread.Sleep(5000);
+                this.CurrentTime = "hello prism!";
+            });
+        }
+        
         void ExecuteGetCurrentTimeCommand(object parameter)
         {
             this.CurrentTime = ((Button)parameter)?.Name+ DateTime.Now.ToString();

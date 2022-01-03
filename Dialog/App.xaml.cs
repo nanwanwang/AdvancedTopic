@@ -5,12 +5,12 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Dialog.ViewModels;
+using Dialog.Views;
 using Prism.Ioc;
 using Prism.Unity;
-using PrismSample.Sevices;
-using PrismSample.Views;
 
-namespace PrismSample
+namespace Dialog
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -19,14 +19,12 @@ namespace PrismSample
     {
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<ICustomerStore, DbCustomerStore>();
-         
+           containerRegistry.RegisterDialog<AlertDialog,AlertDialogViewModel>();
         }
 
         protected override Window CreateShell()
         {
-            var window = Container.Resolve<MainWindow>();
-            return window;
+            throw new NotImplementedException();
         }
     }
 }
