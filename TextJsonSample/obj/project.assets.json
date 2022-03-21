@@ -8,8 +8,7 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\demon\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\nanwa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -17,15 +16,11 @@
       "projectUniqueName": "D:\\demo\\AdvancedTopic\\TextJsonSample\\TextJsonSample.csproj",
       "projectName": "TextJsonSample",
       "projectPath": "D:\\demo\\AdvancedTopic\\TextJsonSample\\TextJsonSample.csproj",
-      "packagesPath": "C:\\Users\\demon\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\nanwa\\.nuget\\packages\\",
       "outputPath": "D:\\demo\\AdvancedTopic\\TextJsonSample\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\demon\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\nanwa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -65,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
