@@ -9,7 +9,11 @@
 
     <ItemGroup>
       <PackageReference Include="EasyNetQ" Version="6.3.1" />
-      <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EasyNetQModel\EasyNetQModel.csproj" />
+      <ProjectReference Include="..\MqTestModel\MqTestModel.csproj" />
     </ItemGroup>
 
 </Project>

@@ -7,9 +7,4 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
-    <ItemGroup>
-      <PackageReference Include="EasyNetQ" Version="6.3.1" />
-      <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
-    </ItemGroup>
-
 </Project>
