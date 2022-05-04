@@ -15,4 +15,10 @@
       <ProjectReference Include="..\MqTestModel\MqTestModel.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="IOServer.Entity.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <HintPath>bin\Debug\net6.0\IOServer.Entity.Shared.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>

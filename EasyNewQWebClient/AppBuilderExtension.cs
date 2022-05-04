@@ -14,7 +14,10 @@ public static class AppBuilderExtension
         var bus = services.GetService<IBus>();
         lifeTime!.ApplicationStarted.Register(() =>
         {
-            var subscriber = new AutoSubscriber(bus, subscriptionIdPrefix);
+            var subscriber = new AutoSubscriber(bus, subscriptionIdPrefix)
+            {
+                AutoSubscriberMessageDispatcher = new WeatherForecastDispatcher(appBulider.ApplicationServices)
+            };
             subscriber.Subscribe(assemblies);
             subscriber.SubscribeAsync(assemblies);
         });

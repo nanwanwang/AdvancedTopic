@@ -18,6 +18,7 @@ public class ConfigController:ControllerBase
     [HttpGet("getconfig")]
     public UserInfo GetConfig()
     {
+        
         var userInfo1 = _configuration.GetSection("UserInfo").Get<UserInfo>();
 
         var commomValue = _configuration["commonkey"];

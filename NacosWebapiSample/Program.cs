@@ -1,13 +1,20 @@
+using Nacos.V2.DependencyInjection;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.ConfigureAppConfiguration((context, configurationBuilder) =>
 {
-    var config = configurationBuilder.Build();
-    configurationBuilder.AddNacosV2Configuration(config.GetSection("NacosConfig"));
+    builder.Services.AddNacosV2Config(builder.Configuration.GetSection("NacosConfig"));
+    // var config = configurationBuilder.Build();
+    // configurationBuilder.AddNacosV2Configuration(config.GetSection("NacosConfig"));
     // 也可以按需使用ini或yaml的解析器
     // builder.AddNacosV2Configuration(c.GetSection("NacosConfig"), Nacos.IniParser.IniConfigurationStringParser.Instance);
     // builder.AddNacosV2Configuration(c.GetSection("NacosConfig"), Nacos.YamlParser.YamlConfigurationStringParser.Instance);
 });
+
+//b
+
+
 
 // Add services to the container.
 
